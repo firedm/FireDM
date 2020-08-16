@@ -552,7 +552,7 @@ class MainWindow:
         ]
 
         # window
-        window = sg.Window(title=config.APP_TITLE, layout=layout, size=(700, 465), margins=(2, 2),
+        window = sg.Window(title=config.APP_TITLE, layout=layout, size=config.window_size, margins=(2, 2),
                            return_keyboard_events=True, resizable=True)
         return window
 
@@ -2864,6 +2864,7 @@ class MainWindow:
         except:
             pass
 
+        config.window_size = self.window.Size
         # log('main window closing')
         self.window.close()
 
