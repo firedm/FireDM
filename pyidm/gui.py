@@ -553,7 +553,7 @@ class MainWindow:
 
         # window
         window = sg.Window(title=config.APP_TITLE, layout=layout, size=(700, 465), margins=(2, 2),
-                           return_keyboard_events=True)
+                           return_keyboard_events=True, resizable=True)
         return window
 
     def start_window(self):
