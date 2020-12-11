@@ -179,7 +179,8 @@ class Video(DownloadItem):
             v_names.append(stream.raw_name)
 
         # sort and rebuild video streams again
-        video_streams = sorted([stream for stream in video_streams if stream not in extra_streams], key=lambda stream: stream.quality, reverse=True)
+        video_streams = sorted([stream for stream in video_streams if stream not in extra_streams],
+                                key=lambda stream: int(re.search(r"\d+", stream.quality).group()), reverse=True)
 
         # sort video streams mp4 first
         mp4_videos = [stream for stream in video_streams if stream.extension == 'mp4']
@@ -331,7 +332,7 @@ class Video(DownloadItem):
 
         # select an audio to embed if our stream is dash video
         audio_streams = sorted([stream for stream in self.all_streams if stream.mediatype == 'audio'],
-                               key=lambda stream: stream.quality, reverse=True)
+                               key=lambda stream: int(re.search(r"\d+", stream.quality).group()), reverse=True)
 
         if stream.mediatype == 'dash' and audio_streams:
             # auto select audio stream if no parameter given
