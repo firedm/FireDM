@@ -13,6 +13,7 @@ import time
 from urllib.parse import urljoin
 
 from . import config
+from .itags import itag_res
 from .downloaditem import DownloadItem, Segment
 from .utils import (log, validate_file_name, get_headers, size_format, run_command, delete_file, download, rename_file)
 
@@ -451,13 +452,7 @@ class Stream:
 
     @property
     def quality(self):
-        try:
-            if self.mediatype == 'audio':
-                return int(self.abr)
-            else:
-                return int(self.height)
-        except:
-            return 0
+        return itag_res(self.format_id)
 
     def __repr__(self, include_size=True):
         return self.name
