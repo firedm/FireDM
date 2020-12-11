@@ -1,0 +1,6 @@
+pyidm/__pycache__/
+pyidm/downloads.dat
+pyidm/setting.cfg
+pyidm/thumbnails.dat
+pyidm/user_themes.cfg
+ffmpeg.exe
