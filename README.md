@@ -145,6 +145,21 @@ Run PyIDM without any installation (recommended)
 
    - run PyIDM from Terminal by typing:  
         `python3 -m pyidm`     or  just `pyidm`
+        
+# Run on startup (Arch Linux)   
+
+- Go /home/username/.config/autostart/ with dolphin
+- Create file named "pyidm.desktop" add this code:
+
+[Desktop Entry]
+Name=pyidm
+Icon=/home/yourusername/Desktop/Apps/PyIDM-2020.12.20/pyidm/systray.png
+Exec=python3 /home/yourusername/Desktop/Apps/PyIDM-2020.12.20/pyidm.py
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
+
+- Now it will work after restart !!
 
 # Known Issues:
 - Linux X-server will raise an error if some fonts are missing especially emoji fonts, for more info refer to [issue #200](https://github.com/pyIDM/PyIDM/issues/200).
